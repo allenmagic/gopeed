@@ -5,8 +5,8 @@ RUN go mod download
 COPY . .
 ARG VERSION=dev
 RUN CGO_ENABLED=0 go build -tags nosqlite,web \
-      -ldflags="-s -w -X github.com/GopeedLab/gopeed/pkg/base.Version=$VERSION -X github.com/GopeedLab/gopeed/pkg/base.InDocker=true" \
-      -o dist/gopeed github.com/GopeedLab/gopeed/cmd/web
+      -ldflags="-s -w -X github.com/allenmagic/gopeed/pkg/base.Version=$VERSION -X github.com/allenmagic/gopeed/pkg/base.InDocker=true" \
+      -o dist/gopeed github.com/allenmagic/gopeed/cmd/web
 
 FROM alpine:3.18
 LABEL maintainer="monkeyWie"
