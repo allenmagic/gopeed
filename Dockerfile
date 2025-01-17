@@ -3,7 +3,7 @@ WORKDIR /app
 COPY ./go.mod ./go.sum ./
 RUN go mod download
 COPY . .
-ARG VERSION=dev
+ARG VERSION=main
 RUN CGO_ENABLED=0 go build -tags nosqlite,web \
       -ldflags="-s -w -X github.com/allenmagic/gopeed/pkg/base.Version=$VERSION -X github.com/allenmagic/gopeed/pkg/base.InDocker=true" \
       -o dist/gopeed github.com/allenmagic/gopeed/cmd/web
